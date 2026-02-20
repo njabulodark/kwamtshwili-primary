@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Kwamtshwili Primary School</title>
+    <meta name="description" content="School events, celebrations, and important dates at Kwamtshwili Primary School.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'brand-primary': '#2E5C55',
+                        'brand-accent': '#D4A574',
+                        'brand-sage': '#8FBC8F',
+                        'brand-terracotta': '#C07A5A',
+                        'brand-dark': '#0F172A',
+                        'brand-cream': '#FDF8F5',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .img-zoom-container { overflow: hidden; }
+        .img-zoom-container img { transition: transform 0.7s ease; }
+        .img-zoom-container:hover img { transform: scale(1.1); }
+    </style>
+</head>
+<body class="text-brand-dark antialiased bg-brand-cream">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-lg shadow-lg">
+        <div class="container mx-auto px-6 lg:px-12 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="group flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-sage text-white flex items-center justify-center font-serif font-bold text-xl rounded-lg shadow-md">K</div>
+                    <div>
+                        <span class="font-serif text-xl font-bold block text-brand-dark">Kwamtshwili Primary</span>
+                        <span class="text-xs text-gray-500 font-medium">School</span>
+                    </div>
+                </a>
+
+                <div class="hidden lg:flex items-center gap-8 text-sm font-medium">
+                    <a href="index.html" class="hover:text-brand-primary transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-brand-primary transition-colors">About</a>
+                    <a href="academics.html" class="hover:text-brand-primary transition-colors">Academics</a>
+                    <a href="admissions.html" class="hover:text-brand-primary transition-colors">Admissions</a>
+                    <a href="apply.html" class="hover:text-brand-primary transition-colors">Apply</a>
+                    <a href="activities.html" class="hover:text-brand-primary transition-colors">Activities</a>
+                    <a href="sports.html" class="hover:text-brand-primary transition-colors">Sports</a>
+                    <a href="events.html" class="text-brand-primary font-semibold">Events</a>
+                    <a href="contact.html" class="px-6 py-2.5 bg-gradient-to-r from-brand-primary to-brand-sage text-white font-semibold rounded-full hover:shadow-lg transition-all">Contact</a>
+                </div>
+
+                <button id="mobileMenuBtn" class="lg:hidden p-2 hover:bg-gray-100 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="hidden lg:hidden mt-4 pb-4 border-t pt-4">
+                <a href="index.html" class="block py-2 hover:text-brand-primary">Home</a>
+                <a href="about.html" class="block py-2 hover:text-brand-primary">About</a>
+                <a href="academics.html" class="block py-2 hover:text-brand-primary">Academics</a>
+                <a href="admissions.html" class="block py-2 hover:text-brand-primary">Admissions</a>
+                <a href="apply.html" class="block py-2 hover:text-brand-primary">Apply</a>
+                <a href="activities.html" class="block py-2 hover:text-brand-primary">Activities</a>
+                <a href="sports.html" class="block py-2 hover:text-brand-primary">Sports</a>
+                <a href="events.html" class="block py-2 text-brand-primary font-semibold">Events</a>
+                <a href="contact.html" class="block py-2 text-brand-primary font-semibold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-40 pb-20 bg-gradient-to-r from-brand-terracotta to-brand-accent relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-6 lg:px-12 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
+                <span class="text-white text-xs font-bold tracking-widest uppercase">School Calendar</span>
+            </div>
+            <h1 class="font-serif text-5xl md:text-6xl font-bold mb-6 text-white">Events & Calendar</h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto">Stay connected with our vibrant school community through exciting events throughout the year.</p>
+        </div>
+    </section>
+
+    <!-- Featured Event -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-12 reveal">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-brand-terracotta/10 rounded-full mb-6">
+                    <span class="w-2 h-2 bg-brand-terracotta rounded-full animate-pulse"></span>
+                    <span class="text-brand-terracotta text-xs font-bold tracking-widest uppercase">Featured Event</span>
+                </div>
+            </div>
+            
+            <div class="max-w-5xl mx-auto reveal">
+                <div class="bg-gradient-to-r from-brand-terracotta to-brand-accent rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="grid grid-cols-1 lg:grid-cols-2">
+                        <div class="aspect-[4/3] lg:aspect-auto img-zoom-container">
+                            <img src="https://picsum.photos/seed/featuredevent/800/600" alt="Featured Event" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-8 lg:p-12 text-white">
+                            <span class="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-semibold mb-4">UPCOMING</span>
+                            <h2 class="font-serif text-3xl lg:text-4xl font-bold mb-4">Annual Sports Day 2026</h2>
+                            <div class="flex items-center gap-4 mb-6 text-sm">
+                                <div class="flex items-center gap-2">
+                                    <span>📅</span>
+                                    <span>March 15, 2026</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span>🕐</span>
+                                    <span>8:00 AM - 3:00 PM</span>
+                                </div>
+                            </div>
+                            <p class="text-white/90 mb-6 leading-relaxed">
+                                Join us for our biggest sporting event of the year! Students from all grades compete in track and field events, relay races, and team sports. Come cheer for your house!
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span>📍</span>
+                                    <span>Main Sports Field</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span>👨‍👩‍👧‍👦</span>
+                                    <span>All Welcome</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span>🍱</span>
+                                    <span>Food Stalls Available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="py-20 bg-brand-cream">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-brand-primary/10 rounded-full mb-6">
+                    <span class="w-2 h-2 bg-brand-primary rounded-full"></span>
+                    <span class="text-brand-primary text-xs font-bold tracking-widest uppercase">Coming Up</span>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Upcoming Events</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Mark your calendars for these exciting upcoming events.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Event 1 -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden group reveal">
+                    <div class="aspect-[4/3] img-zoom-container">
+                        <img src="https://picsum.photos/seed/concert/600/450" alt="Music Concert" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-14 h-14 bg-brand-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <div class="text-center">
+                                    <span class="block text-brand-accent font-bold text-xs">MAR</span>
+                                    <span class="block text-brand-accent font-bold text-lg">22</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-brand-dark">Spring Music Concert</h3>
+                                <p class="text-sm text-gray-500">School Auditorium</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Our talented students showcase their musical abilities in this annual performance featuring choir, orchestra, and solo acts.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">6:00 PM - 8:00 PM</span>
+                            <a href="#" class="text-brand-primary font-semibold text-sm hover:underline">Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden group reveal">
+                    <div class="aspect-[4/3] img-zoom-container">
+                        <img src="https://picsum.photos/seed/sciencefair/600/450" alt="Science Fair" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-14 h-14 bg-brand-sage/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <div class="text-center">
+                                    <span class="block text-brand-sage font-bold text-xs">APR</span>
+                                    <span class="block text-brand-sage font-bold text-lg">10</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-brand-dark">Science Fair 2026</h3>
+                                <p class="text-sm text-gray-500">Science Labs</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Young scientists present their innovative projects and experiments. A celebration of curiosity and discovery.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">9:00 AM - 12:00 PM</span>
+                            <a href="#" class="text-brand-primary font-semibold text-sm hover:underline">Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden group reveal">
+                    <div class="aspect-[4/3] img-zoom-container">
+                        <img src="https://picsum.photos/seed/artshow/600/450" alt="Art Show" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-14 h-14 bg-brand-terracotta/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <div class="text-center">
+                                    <span class="block text-brand-terracotta font-bold text-xs">APR</span>
+                                    <span class="block text-brand-terracotta font-bold text-lg">25</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-brand-dark">Annual Art Exhibition</h3>
+                                <p class="text-sm text-gray-500">Art Gallery</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Showcasing the incredible artistic talents of our students across all grade levels.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">4:00 PM - 7:00 PM</span>
+                            <a href="#" class="text-brand-primary font-semibold text-sm hover:underline">Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden group reveal">
+                    <div class="aspect-[4/3] img-zoom-container">
+                        <img src="https://picsum.photos/seed/careerday/600/450" alt="Career Day" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-14 h-14 bg-brand-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <div class="text-center">
+                                    <span class="block text-brand-primary font-bold text-xs">MAY</span>
+                                    <span class="block text-brand-primary font-bold text-lg">08</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-brand-dark">Career Day</h3>
+                                <p class="text-sm text-gray-500">Main Hall</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Parents and professionals share their career journeys. Inspiring future aspirations in our students.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">8:30 AM - 2:00 PM</span>
+                            <a href="#" class="text-brand-primary font-semibold text-sm hover:underline">Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden group reveal">
+                    <div class="aspect-[4/3] img-zoom-container">
+                        <img src="https://picsum.photos/seed/familyday/600/450" alt="Family Day" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-14 h-14 bg-brand-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <div class="text-center">
+                                    <span class="block text-brand-accent font-bold text-xs">MAY</span>
+                                    <span class="block text-brand-accent font-bold text-lg">20</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-brand-dark">Family Fun Day</h3>
+                                <p class="text-sm text-gray-500">School Grounds</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Games, food, entertainment, and community bonding. A day of fun for the whole family!</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">10:00 AM - 4:00 PM</span>
+                            <a href="#" class="text-brand-primary font-semibold text-sm hover:underline">Details →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden group reveal">
+                    <div class="aspect-[4/3] img-zoom-container">
+                        <img src="https://picsum.photos/seed/graduation/600/450" alt="Graduation" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-14 h-14 bg-brand-sage/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <div class="text-center">
+                                    <span class="block text-brand-sage font-bold text-xs">JUN</span>
+                                    <span class="block text-brand-sage font-bold text-lg">15</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-brand-dark">Grade 7 Graduation</h3>
+                                <p class="text-sm text-gray-500">Auditorium</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Celebrating our graduating class as they complete their primary education journey.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">5:00 PM - 7:00 PM</span>
+                            <a href="#" class="text-brand-primary font-semibold text-sm hover:underline">Details →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Categories -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-brand-sage/10 rounded-full mb-6">
+                    <span class="w-2 h-2 bg-brand-sage rounded-full"></span>
+                    <span class="text-brand-sage text-xs font-bold tracking-widest uppercase">Categories</span>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Events by Category</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="bg-gradient-to-br from-brand-primary to-brand-sage rounded-2xl p-6 text-center text-white reveal">
+                    <span class="text-4xl mb-3 block">🏆</span>
+                    <h3 class="font-semibold">Sports</h3>
+                    <p class="text-sm text-white/80 mt-1">12 events this term</p>
+                </div>
+                <div class="bg-gradient-to-br from-brand-accent to-brand-terracotta rounded-2xl p-6 text-center text-white reveal">
+                    <span class="text-4xl mb-3 block">🎭</span>
+                    <h3 class="font-semibold">Arts & Culture</h3>
+                    <p class="text-sm text-white/80 mt-1">8 events this term</p>
+                </div>
+                <div class="bg-gradient-to-br from-brand-sage to-brand-primary rounded-2xl p-6 text-center text-white reveal">
+                    <span class="text-4xl mb-3 block">📚</span>
+                    <h3 class="font-semibold">Academic</h3>
+                    <p class="text-sm text-white/80 mt-1">10 events this term</p>
+                </div>
+                <div class="bg-gradient-to-br from-brand-terracotta to-brand-accent rounded-2xl p-6 text-center text-white reveal">
+                    <span class="text-4xl mb-3 block">👨‍👩‍👧‍👦</span>
+                    <h3 class="font-semibold">Community</h3>
+                    <p class="text-sm text-white/80 mt-1">6 events this term</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Download -->
+    <section class="py-20 bg-brand-cream">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-8 lg:p-12 reveal">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="font-serif text-3xl font-bold mb-4 text-brand-dark">Download Full Calendar</h2>
+                        <p class="text-gray-600 mb-6">Get the complete academic year calendar with all events, holidays, and important dates.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-gray-600">
+                                <span class="w-2 h-2 bg-brand-primary rounded-full"></span>
+                                PDF format for easy printing
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-600">
+                                <span class="w-2 h-2 bg-brand-primary rounded-full"></span>
+                                iCal for digital calendars
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-600">
+                                <span class="w-2 h-2 bg-brand-primary rounded-full"></span>
+                                Regular updates throughout the year
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <button class="px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-sage text-white font-bold rounded-full hover:shadow-xl transition-all flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            Download PDF
+                        </button>
+                        <button class="px-8 py-4 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-full hover:border-brand-primary hover:text-brand-primary transition-all flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            Add to Calendar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Events Gallery -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-brand-accent/10 rounded-full mb-6">
+                    <span class="w-2 h-2 bg-brand-accent rounded-full"></span>
+                    <span class="text-brand-accent text-xs font-bold tracking-widest uppercase">Memories</span>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Past Events Gallery</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Relive the magic of our recent celebrations and gatherings.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square img-zoom-container rounded-2xl reveal">
+                    <img src="https://picsum.photos/seed/event1/400/400" alt="Event" class="w-full h-full object-cover rounded-2xl">
+                </div>
+                <div class="aspect-square img-zoom-container rounded-2xl reveal">
+                    <img src="https://picsum.photos/seed/event2/400/400" alt="Event" class="w-full h-full object-cover rounded-2xl">
+                </div>
+                <div class="aspect-square img-zoom-container rounded-2xl reveal">
+                    <img src="https://picsum.photos/seed/event3/400/400" alt="Event" class="w-full h-full object-cover rounded-2xl">
+                </div>
+                <div class="aspect-square img-zoom-container rounded-2xl reveal">
+                    <img src="https://picsum.photos/seed/event4/400/400" alt="Event" class="w-full h-full object-cover rounded-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white">
+    <div class="container mx-auto px-6 lg:px-12 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <!-- Brand -->
+            <div class="lg:col-span-1">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-11 h-11 bg-gradient-to-br from-brand-primary to-brand-sage text-white flex items-center justify-center font-serif font-bold text-xl rounded-lg shadow-lg">A</div>
+                    <div>
+                        <span class="font-serif text-xl font-bold block leading-tight">Acacia Primary</span>
+                        <span class="text-xs text-gray-400 tracking-wide">School</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Where Cambridge excellence meets Zambian heritage. Building confident learners and compassionate leaders.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-9 h-9 bg-white/5 hover:bg-brand-primary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label="Facebook">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" class="w-9 h-9 bg-white/5 hover:bg-brand-primary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label="Twitter">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                    <a href="#" class="w-9 h-9 bg-white/5 hover:bg-brand-primary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label="Instagram">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-serif text-lg font-bold mb-6 flex items-center gap-2">
+                    <span class="w-1 h-5 bg-brand-primary rounded-full"></span>
+                    Quick Links
+                </h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="academics.html" class="text-gray-400 hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-0.5 bg-brand-primary transition-all duration-300"></span>Academics</a></li>
+                    <li><a href="admissions.html" class="text-gray-400 hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-0.5 bg-brand-primary transition-all duration-300"></span>Admissions</a></li>
+                    <li><a href="activities.html" class="text-gray-400 hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-0.5 bg-brand-primary transition-all duration-300"></span>Activities</a></li>
+                    <li><a href="events.html" class="text-gray-400 hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-0.5 bg-brand-primary transition-all duration-300"></span>Events</a></li>
+                    <li><a href="about.html" class="text-gray-400 hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-0.5 bg-brand-primary transition-all duration-300"></span>About Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div>
+                <h4 class="font-serif text-lg font-bold mb-6 flex items-center gap-2">
+                    <span class="w-1 h-5 bg-brand-primary rounded-full"></span>
+                    Resources
+                </h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="students.html" class="text-gray-400 hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-0.5 bg-brand-primary transition-all duration-300"></span>Student Portal</a></li>
+                    <li><a href="sports.html" class="text-gray-400 hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-0.5 bg-brand-primary transition-all duration-300"></span>Sports</a></li>
+                    <li><a href="apply.html" class="text-gray-400 hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-0.5 bg-brand-primary transition-all duration-300"></span>Apply Now</a></li>
+                    <li><a href="contact.html" class="text-gray-400 hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 group"><span class="w-0 group-hover:w-2 h-0.5 bg-brand-primary transition-all duration-300"></span>Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h4 class="font-serif text-lg font-bold mb-6 flex items-center gap-2">
+                    <span class="w-1 h-5 bg-brand-primary rounded-full"></span>
+                    Get in Touch
+                </h4>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-start gap-3 group">
+                        <span class="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-brand-primary transition-colors duration-300">📍</span>
+                        <span class="text-gray-400 group-hover:text-white transition-colors duration-300">Livingstone, Zambia</span>
+                    </li>
+                    <li class="flex items-center gap-3 group">
+                        <span class="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-brand-primary transition-colors duration-300">📞</span>
+                        <a href="tel:+260123456789" class="text-gray-400 hover:text-white transition-colors duration-300">+260 123 456 789</a>
+                    </li>
+                    <li class="flex items-center gap-3 group">
+                        <span class="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-brand-primary transition-colors duration-300">✉️</span>
+                        <a href="mailto:info@acaciaprimary.ac.zm" class="text-gray-400 hover:text-white transition-colors duration-300">info@acaciaprimary.ac.zm</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-white/10 mt-12 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">&copy; 2026 Acacia Primary School. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-400">
+                    <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors duration-300">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+    </script>
+</body>
+</html>
